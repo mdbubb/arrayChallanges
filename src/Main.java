@@ -1,44 +1,40 @@
+package com.company;
+
 import java.util.Scanner;
 
-/**
- * Created by mb977 on 10/27/16.
- */
 public class Main {
+
     public static void main(String[] args) {
-       /*int grades[] = {90,95,100,98};
-        int average;
-        int sum =0;
-        for(int i =0; i<grades.length; i++){
-             average = sum /grades.length;
-            if (i==2)
-                System.out.println(average);
-
-        }*/
-
+        int grades[] = new int[1000];
+        String names[] = new String[1000];
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your grades or type -1 to stop");
-        int grade = input.nextInt();
+        int grade;
+        int count = 0;
         int sum = 0;
-        int average = 0;
-        while (grade != -1) {
-            if (grade == -1) {
+        while (true) {
+            System.out.println("Enter name");
+            String nn = input.next();
+            System.out.println("Enter grade or -1");
+            grade = input.nextInt();
+            if (grade == -1)
 
-                System.out.println(average);
                 break;
-            } else {
-                int grades[] = new int[1000];
-                for (int i = 0; i < grades.length; i++) {
-                    sum = sum + grades[i];
-                        average = sum / grades.length;
+            grades[count] = grade;
 
+            names[count] = nn;
+            sum = sum + grades[count];
+            count++;
+            int average = sum / count;
 
-                }
+            System.out.println("The members of the class are: ");
+            for (int i = 0; i < count; i++) {
+
+                System.out.println(names[i]);
             }
-
-
+            System.out.println();
+            System.out.println("The average of the class is " + average);
         }
 
+
     }
-
 }
-
